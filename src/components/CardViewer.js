@@ -6,7 +6,11 @@ class CardViewer extends Component {
   render() {
     return (
       <div>
-        This is the viewer!
+        <input name="card" />
+        <br />
+        <button>New Card</button>
+        <hr/>
+        <button onClick={this.props.switchMode}>Go to editor</button>
       </div>
     );
   }
