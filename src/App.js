@@ -20,7 +20,7 @@ class App extends Component {
   }
   addCard = (front, back) => {
     this.setState(state => ({
-      cards : [...state.cards, {front, back}]
+      cards : [...state.cards, {front, back}]     
     }));
   }
   deleteCard = (index) => {
@@ -30,7 +30,7 @@ class App extends Component {
       return {cards};
     })
   }
-
+  
   render() {
     if (this.state.editor) {
       return (
@@ -44,7 +44,7 @@ class App extends Component {
       );
     }else{
       return  ( 
-        <CardViewer switchMode={this.switchMode}/>
+        <CardViewer cards={this.state.cards} switchMode={this.switchMode}/>
 
       );
     }
