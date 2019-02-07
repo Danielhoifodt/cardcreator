@@ -11,3 +11,6 @@ td, th {
 body {
     text-align: center;
 }
+.display {
+    display: none;
+}

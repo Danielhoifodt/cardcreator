@@ -35,7 +35,7 @@ class CardViewer extends Component {
       <div>
         <div className="card">
             Card #: 
-            {this.state.cardIndex} 
+            {this.state.cardIndex + 1} 
             <h2 onClick={this.flipCard}>{view}</h2>
         </div>
         <br />

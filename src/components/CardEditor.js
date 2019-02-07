@@ -11,7 +11,15 @@ class CardEditor extends Component {
             back: ""
         }
     }
+    warning = () => {
+        if (this.props.cards.toString() === "" ) {
+        alert('Fill in a card before moving to viewer');
+        }else {
+            return null;
+        }
+    }
 
+    
     handleChange = (event) => {
         this.setState({
             [event.target.name] : event.target.value
@@ -27,9 +35,13 @@ class CardEditor extends Component {
     deleteCard = (event) => {
         this.props.deleteCard(event.target.dataset.index);
     }
+    showButton = (event) => {
+        let showButton = event.target.value;
+        this.setState({showButton});
+    }
 
   render() {
-
+    
     const row = this.props.cards.map((card, index) => {
         return (
             <tr key={index}>
@@ -39,6 +51,8 @@ class CardEditor extends Component {
             </tr>
         );
     })
+
+    
 
     return (
       <div>
@@ -59,8 +73,8 @@ class CardEditor extends Component {
        <input onChange={this.handleChange} name="front" placeholder="front of card" value={this.state.front}/>
        <input onChange={this.handleChange} name="back" placeholder="back of card" value={this.state.back}/>
        <button onClick={this.addCard}>Add card</button>
-        <hr />
-        <button onClick={this.props.switchMode}>Go to viewer</button>
+        <button onMouseOver={this.warning} onClick={this.props.switchMode}>Go to viewer</button>
+        
       </div>
     );
   }
